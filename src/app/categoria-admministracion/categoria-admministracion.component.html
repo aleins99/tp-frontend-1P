@@ -1,0 +1,25 @@
+<!-- categoria-administracion.component.html -->
+<div class="container">
+    <h2>Agregar Nueva Categoría</h2>
+    <form>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <input type="text" id="descripcion" [(ngModel)]="nuevaCategoria.descripcion" name="descripcion">
+            <button (click)="agregarCategoria()">Agregar</button>
+        </div>
+
+    </form>
+
+    <h2>Lista de Categorías</h2>
+    <ul>
+        <li *ngFor="let categoria of categorias">
+            <span *ngIf="categoria !== categoriaAEditar">{{ categoria.descripcion }}</span>
+            <input *ngIf="categoria === categoriaAEditar" [(ngModel)]="categoriaAEditar.descripcion"
+                (keyup.enter)="guardarEdicion()" (keyup.escape)="cancelarEdicion()" />
+            <div class="action-buttons">
+                <button (click)="editarCategoria(categoria)">Editar</button>
+                <button (click)="eliminarCategoria(categoria.idCategoria)">Eliminar</button>
+            </div>
+        </li>
+    </ul>
+</div>
