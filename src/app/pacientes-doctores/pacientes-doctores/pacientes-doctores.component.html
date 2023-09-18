@@ -1,8 +1,7 @@
-<p>Aca irian los pacientes y doctores :D </p>
 
 <div class="container">
 
-    <h2>Agregar Nueva Persona </h2>
+    <h2>Agregar Nueva Persona</h2>
     <form>
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" [(ngModel)]="nuevapersona.nombre" name="nombre">  
@@ -12,53 +11,51 @@
         <input type="text" id="apellido" [(ngModel)]="nuevapersona.apellido" name="apellido">
         <br><br>
 
-        <label for="celular">Telefono:</label>
+        <label for="telefono">Telefono:</label>
         <input type="text" id="telefono" [(ngModel)]="nuevapersona.telefono" name="telefono">
         <br><br>
 
-        <label for="celular">Email:</label> 
+        <label for="email">Email:</label> 
         <input type="text" id="email" [(ngModel)]="nuevapersona.email" name="email">
         <br><br>
 
-        <label for="celular">CI:</label>
+        <label for="cedula">CI:</label>
         <input type="text" id="cedula" [(ngModel)]="nuevapersona.cedula" name="cedula">
         <br><br>
 
-        <label for="celular">Es Doctor(1) o Paciente(0)?:</label>
-        <input type="text" id="flag_es_doctor" [(ngModel)]="nuevapersona.flag_es_doctor" name="flag_es_doctor" (ngModelChange)="validarFlagEsDoctor()" >
+        <label for="flag_es_doctor">Es Doctor(1) o Paciente(0):</label>
+        <input type="text" id="flag_es_doctor" [(ngModel)]="nuevapersona.flag_es_doctor" name="flag_es_doctor" (ngModelChange)="validarFlagEsDoctor()">
         <br><br>
 
-        
         <button (click)="agregarPersona()">Agregar</button>
         
     </form>
 
-    
-    
     <h2>Lista de Personas</h2>
 
     <div>
         <input type="text" [(ngModel)]="filtroNombre" placeholder="Filtrar por nombre" (input)="aplicarFiltro()">
         <input type="text" [(ngModel)]="filtroApellido" placeholder="Filtrar por apellido" (input)="aplicarFiltro()">
         <select [(ngModel)]="filtroProfesion" (change)="aplicarFiltro()">
-        <option value="todos">Todos</option>
-        <option value="doctores">Doctores</option>
-        <option value="pacientes">Pacientes</option>
+            <option value="todos">Todos</option>
+            <option value="doctores">Doctores</option>
+            <option value="pacientes">Pacientes</option>
         </select>
+        <button (click)="borrarFiltros()">Borrar Filtros</button>
     </div>
 
     <table>
-    <thead>
-        <tr>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Email</th>
-        <th>Profesión</th>
-        <th>Acciones</th>
-        </tr>
-    </thead>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Profesión</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr *ngFor="let persona of personas">
+            <tr *ngFor="let persona of personasFiltradas">
                 <td *ngIf="persona !== personaEditar">{{ persona.nombre }}</td>
                 <td *ngIf="persona !== personaEditar">{{ persona.apellido }}</td>
                 <td *ngIf="persona !== personaEditar">{{ persona.email }}</td>
@@ -80,6 +77,5 @@
             </tr>
         </tbody>
     </table>
-
 
 </div>

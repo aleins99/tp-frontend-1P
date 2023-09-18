@@ -1,139 +1,141 @@
 /* src/app/categoria-administracion/categoria-administracion.component.css */
+
 /* Importa una fuente personalizada desde Google Fonts */
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 .container {
-    text-align: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  h2 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
 
-  th {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    margin-bottom: 20px;
-    
-    
-  }
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
+th {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 
-  td {
-    font-family: 'Roboto', sans-serif;
-    font-size: 18px;
-    margin-bottom: 20px;
-    
-  }
-  
-  form {
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  label {
-    font-family: 'Roboto', sans-serif;
-    margin-right: 10px;
-  }
-  
-  input[type="text"] {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  button {
-    font-family: 'Roboto', sans-serif;
-    padding: 5px 10px;
-    background-color: #4CAF50; /* Color verde */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  button:hover {
-    background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
-  }
-  
-  button.cancel {
-    background-color: #f00; /* Color rojo para botones de cancelar */
-  }
-  
-  button.cancel:hover {
-    background-color: #d00; /* Color rojo más oscuro al pasar el mouse */
-  }
-  ul {
-    font-family: 'Roboto', sans-serif;
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 4px;
-    background-color: #fff;
-  }
-  
-  li button {
-    cursor: pointer;
-  }
-  
-  /* Estilo para los botones de acción (Editar y Eliminar) */
-  li .action-buttons {
-    display: flex;
-    gap: 10px; /* Espacio entre los botones */
-  }
-  
-  li .action-buttons button {
-    flex: 1; /* Divide el espacio disponible entre los botones */
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  li button.edit {
-    background-color: #4CAF50; /* Color verde para el botón de editar */
-    color: #fff;
-  }
-  
-  li button.delete {
-    background-color: #f00; /* Color rojo para el botón de eliminar */
-    color: #fff;
-  }
-  
-  li button:hover {
-    background-color: #333;
-  }
+td {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
 
-  table{
+form {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column; /* Alinea los campos verticalmente */
+  align-items: center; /* Centra horizontalmente */
 
-    border-collapse: separate;
-    border-spacing: 10px;
+}
 
-  }
-  
-  
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+label {
+  font-family: 'Roboto', sans-serif;
+  margin-right: 10px;
+  text-align: center; /* Centra el texto dentro de los labels */
+  width: 100px; /* Asegura un ancho fijo para los labels */
+}
+
+input[type="text"] {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center; /* Centra el texto dentro de los input[type="text"] */
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+  padding: 5px 10px;
+  background-color: #4CAF50; /* Color verde */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+}
+
+button.cancel {
+  background-color: #f00; /* Color rojo para botones de cancelar */
+}
+
+button.cancel:hover {
+  background-color: #d00; /* Color rojo más oscuro al pasar el mouse */
+}
+
+ul {
+  font-family: 'Roboto', sans-serif;
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  text-align: center; /* Centra el texto dentro de los elementos li */
+}
+
+li button {
+  cursor: pointer;
+}
+
+/* Estilo para los botones de acción (Editar y Eliminar) */
+li .action-buttons {
+  display: flex;
+  gap: 10px; /* Espacio entre los botones */
+}
+
+li .action-buttons button {
+  flex: 1; /* Divide el espacio disponible entre los botones */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+li button.edit {
+  background-color: #4CAF50; /* Color verde para el botón de editar */
+  color: #fff;
+}
+
+li button.delete {
+  background-color: #f00; /* Color rojo para el botón de eliminar */
+  color: #fff;
+}
+
+li button:hover {
+  background-color: #333;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 10px;
+  margin: 0 auto; /* Centra la tabla horizontalmente */
+}

@@ -1,25 +1,4 @@
 // src/app/categoria-administracion/categoria-administracion.component.ts
-/*import { Component } from '@angular/core';
-import { Categoria } from '../../app/models/categoria.models';
-import { CategoriaService } from '../categoria.service';
-
-@Component({
-  selector: 'app-categoria-administracion',
-  templateUrl: './categoria-admministracion.component.html',
-  styleUrls: ['./categoria-admministracion.component.css']
-})
-export class CategoriaAdministracionComponent {
-  nuevaCategoria: Categoria = { idCategoria: 0, descripcion: '' };
-
-  constructor(public categoriaService: CategoriaService) {}
-
-  agregarCategoria() {
-    this.categoriaService.agregarCategoria(this.nuevaCategoria);
-    this.nuevaCategoria = { idCategoria: 0, descripcion: '' };
-  }
-}*/
-// src/app/categoria.service.ts
-// src/app/categoria-administracion/categoria-administracion.component.ts
 import { Component } from '@angular/core';
 import { Categoria } from '../models/categoria.models';
 import { CategoriaService } from '../categoria.service';

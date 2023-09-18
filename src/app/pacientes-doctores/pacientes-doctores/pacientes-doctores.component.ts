@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { PacientesDoctores } from 'src/app/models/pacientes-doctores.models';
 import { PacientesDoctoresService } from '../pacientes-doctores.service';
 
-import {FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pacientes-doctores',
@@ -19,9 +19,17 @@ export class PacientesDoctoresComponent {
   filtroApellido = '';
   filtroProfesion = 'todos'; // 'todos', 'doctores', 'pacientes'
 
-
   constructor(public pacientesDoctoresService: PacientesDoctoresService) {
+    // Carga los datos desde el servicio (que los obtiene del localStorage)
     this.personas = this.pacientesDoctoresService.getPacientesDoctores();
+    // Inicializa personasFiltradas con todos los datos
+    this.personasFiltradas = this.personas;
+  }
+
+  validarFlagEsDoctor() {
+    if (this.nuevapersona.flag_es_doctor !== '0' && this.nuevapersona.flag_es_doctor !== '1') {
+      this.nuevapersona.flag_es_doctor = ''; // Restablece a un valor por defecto (puede ser '0' o '1' según tu lógica).
+    }
   }
 
   agregarPersona() {
@@ -48,36 +56,36 @@ export class PacientesDoctoresComponent {
     this.pacientesDoctoresService.eliminarPacientesDoctores(idPersona);
   }
 
+  // Método para aplicar el filtrado por nombre, apellido y profesion
+  aplicarFiltro() {
+    // Copia todos los elementos del arreglo original a personasFiltradas
+    this.personasFiltradas = [...this.personas];
 
-  // método para validar la entrada de flag_es_doctor
-  // Agrega una función de validación que se ejecutará automáticamente cuando cambie el valor del input
-  validarFlagEsDoctor() {
-    if (this.nuevapersona.flag_es_doctor !== '0' && this.nuevapersona.flag_es_doctor !== '1') {
-      this.nuevapersona.flag_es_doctor = ''; // Restablece a un valor por defecto (puede ser '0' o '1' según tu lógica).
+    if (this.filtroNombre) {
+      this.personasFiltradas = this.personasFiltradas.filter(persona =>
+        persona.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase())
+      );
+    }
+
+    if (this.filtroApellido) {
+      this.personasFiltradas = this.personasFiltradas.filter(persona =>
+        persona.apellido.toLowerCase().includes(this.filtroApellido.toLowerCase())
+      );
+    }
+
+    if (this.filtroProfesion !== 'todos') {
+      const esDoctor = this.filtroProfesion === 'doctores';
+      this.personasFiltradas = this.personasFiltradas.filter(persona =>
+        persona.flag_es_doctor === (esDoctor ? '1' : '0')
+      );
     }
   }
 
-  // Método para aplicar el filtrado por nombre, apellido y profesion
-  aplicarFiltro() {
-    this.personas = this.personas.filter(persona => {
-      const nombreCoincide = persona.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase());
-      const apellidoCoincide = persona.apellido.toLowerCase().includes(this.filtroApellido.toLowerCase());
-      const esDoctor = persona.flag_es_doctor === '1';
-      const esPaciente = persona.flag_es_doctor === '0';
-
-      if (this.filtroProfesion === 'todos') {
-        return nombreCoincide && apellidoCoincide;
-      } else if (this.filtroProfesion === 'doctores') {
-        return nombreCoincide && apellidoCoincide && esDoctor;
-      } else if (this.filtroProfesion === 'pacientes') {
-        return nombreCoincide && apellidoCoincide && esPaciente;
-      }
-
-      return false;
-    });
+  // Método para borrar todos los filtros y mostrar todos los elementos
+  borrarFiltros() {
+    this.filtroNombre = '';
+    this.filtroApellido = '';
+    this.filtroProfesion = 'todos';
+    this.personasFiltradas = [...this.personas];
   }
-
-  
-
-
 }

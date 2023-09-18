@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "gestion-de-fichas-medica-2c73e": {
+      "hosting": {
+        "tp-frontend-1P": [
+          "gestion-de-fichas-medica-2c73e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "gestion-de-fichas-medica-2c73e"
+  }
+}
