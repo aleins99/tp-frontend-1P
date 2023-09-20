@@ -8,7 +8,7 @@ import { CategoriaAdministracionComponent } from './categoria-admministracion/ca
 import { PacientesDoctoresComponent } from './pacientes-doctores/pacientes-doctores/pacientes-doctores.component';
 import { ReservaTurnosComponent } from './reserva-turnos/reserva-turnos.component';
 import { FichaClinicaComponent } from './ficha-clinica/ficha-clinica.component';
-
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +16,7 @@ import { FichaClinicaComponent } from './ficha-clinica/ficha-clinica.component';
     PacientesDoctoresComponent,
     ReservaTurnosComponent,
     FichaClinicaComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
