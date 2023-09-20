@@ -7,12 +7,15 @@ import { AppComponent } from './app.component';
 import { CategoriaAdministracionComponent } from './categoria-admministracion/categoria-admministracion.component';
 import { PacientesDoctoresComponent } from './pacientes-doctores/pacientes-doctores/pacientes-doctores.component';
 import { ReservaTurnosComponent } from './reserva-turnos/reserva-turnos.component';
+import { FichaClinicaComponent } from './ficha-clinica/ficha-clinica.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     CategoriaAdministracionComponent,
     PacientesDoctoresComponent,
     ReservaTurnosComponent,
+    FichaClinicaComponent,
   ],
   imports: [
     BrowserModule,
