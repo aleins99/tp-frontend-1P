@@ -1,12 +1,12 @@
 // src/app/categoria-administracion/categoria-administracion.component.ts
 import { Component } from '@angular/core';
-import { Categoria } from '../models/categoria.models';
+import { Categoria } from '../models/categoria.interface';
 import { CategoriaService } from '../categoria.service';
 
 @Component({
   selector: 'app-categoria-administracion',
   templateUrl: './categoria-admministracion.component.html',
-  styleUrls: ['./categoria-admministracion.component.css']
+  styleUrls: ['./categoria-admministracion.component.css'],
 })
 export class CategoriaAdministracionComponent {
   categorias: Categoria[] = [];

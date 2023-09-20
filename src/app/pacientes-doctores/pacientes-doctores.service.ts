@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { PacientesDoctores } from '../models/pacientes-doctores.models';
+import { PacientesDoctores } from '../models/pacientes-doctores.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PacientesDoctoresService {
   private localStorageKey = 'pacientesDoctores'; // Define una clave para el localStorage
@@ -27,7 +27,9 @@ export class PacientesDoctoresService {
   }
 
   editarPacientesDoctores(persona: PacientesDoctores) {
-    const index = this.personas.findIndex(c => c.idPersona === persona.idPersona);
+    const index = this.personas.findIndex(
+      (c) => c.idPersona === persona.idPersona
+    );
     if (index !== -1) {
       this.personas[index] = persona;
       this.actualizarLocalStorage();
@@ -35,7 +37,9 @@ export class PacientesDoctoresService {
   }
 
   eliminarPacientesDoctores(idPacientesDoctores: number) {
-    const index = this.personas.findIndex(c => c.idPersona === idPacientesDoctores);
+    const index = this.personas.findIndex(
+      (c) => c.idPersona === idPacientesDoctores
+    );
     if (index !== -1) {
       this.personas.splice(index, 1);
       this.actualizarLocalStorage();

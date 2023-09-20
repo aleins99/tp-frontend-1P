@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PacientesDoctores } from 'src/app/models/pacientes-doctores.models';
+import { PacientesDoctores } from 'src/app/models/pacientes-doctores.interface';
 import { PacientesDoctoresService } from '../pacientes-doctores.service';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -7,11 +7,19 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-pacientes-doctores',
   templateUrl: './pacientes-doctores.component.html',
-  styleUrls: ['./pacientes-doctores.component.css']
+  styleUrls: ['./pacientes-doctores.component.css'],
 })
 export class PacientesDoctoresComponent {
   personas: PacientesDoctores[] = [];
-  nuevapersona: PacientesDoctores = { idPersona: 0, nombre: '', apellido: '', telefono: '', email: '', cedula: '', flag_es_doctor: '' };
+  nuevapersona: PacientesDoctores = {
+    idPersona: 0,
+    nombre: '',
+    apellido: '',
+    telefono: '',
+    email: '',
+    cedula: '',
+    flag_es_doctor: '',
+  };
   personaEditar: PacientesDoctores | null = null;
 
   personasFiltradas: PacientesDoctores[] = []; // Lista filtrada
@@ -27,14 +35,25 @@ export class PacientesDoctoresComponent {
   }
 
   validarFlagEsDoctor() {
-    if (this.nuevapersona.flag_es_doctor !== '0' && this.nuevapersona.flag_es_doctor !== '1') {
+    if (
+      this.nuevapersona.flag_es_doctor !== '0' &&
+      this.nuevapersona.flag_es_doctor !== '1'
+    ) {
       this.nuevapersona.flag_es_doctor = ''; // Restablece a un valor por defecto (puede ser '0' o '1' según tu lógica).
     }
   }
 
   agregarPersona() {
     this.pacientesDoctoresService.agregarPacientesDoctores(this.nuevapersona);
-    this.nuevapersona = { idPersona: 0, nombre: '', apellido: '', telefono: '', email: '', cedula: '', flag_es_doctor: '' };
+    this.nuevapersona = {
+      idPersona: 0,
+      nombre: '',
+      apellido: '',
+      telefono: '',
+      email: '',
+      cedula: '',
+      flag_es_doctor: '',
+    };
   }
 
   editarPersona(persona: PacientesDoctores) {
@@ -62,21 +81,23 @@ export class PacientesDoctoresComponent {
     this.personasFiltradas = [...this.personas];
 
     if (this.filtroNombre) {
-      this.personasFiltradas = this.personasFiltradas.filter(persona =>
+      this.personasFiltradas = this.personasFiltradas.filter((persona) =>
         persona.nombre.toLowerCase().includes(this.filtroNombre.toLowerCase())
       );
     }
 
     if (this.filtroApellido) {
-      this.personasFiltradas = this.personasFiltradas.filter(persona =>
-        persona.apellido.toLowerCase().includes(this.filtroApellido.toLowerCase())
+      this.personasFiltradas = this.personasFiltradas.filter((persona) =>
+        persona.apellido
+          .toLowerCase()
+          .includes(this.filtroApellido.toLowerCase())
       );
     }
 
     if (this.filtroProfesion !== 'todos') {
       const esDoctor = this.filtroProfesion === 'doctores';
-      this.personasFiltradas = this.personasFiltradas.filter(persona =>
-        persona.flag_es_doctor === (esDoctor ? '1' : '0')
+      this.personasFiltradas = this.personasFiltradas.filter(
+        (persona) => persona.flag_es_doctor === (esDoctor ? '1' : '0')
       );
     }
   }

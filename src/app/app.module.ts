@@ -5,20 +5,21 @@ import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CategoriaAdministracionComponent } from './categoria-admministracion/categoria-admministracion.component';
-import { PacientesDoctoresComponent } from './pacientes-doctores/pacientes-doctores/pacientes-doctores.component'
-
+import { PacientesDoctoresComponent } from './pacientes-doctores/pacientes-doctores/pacientes-doctores.component';
+import { ReservaTurnosComponent } from './reserva-turnos/reserva-turnos.component';
 @NgModule({
   declarations: [
     AppComponent,
     CategoriaAdministracionComponent,
-    PacientesDoctoresComponent
-  ],  
+    PacientesDoctoresComponent,
+    ReservaTurnosComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule, // Agrega FormsModule aquí
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

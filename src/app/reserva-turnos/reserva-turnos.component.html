@@ -1,0 +1,143 @@
+<div class="container">
+  <!-- Formulario de Reserva -->
+  <h2>Reserva de Turno</h2>
+  <div class="reservation-form">
+    <form (submit)="reservarTurno()">
+      <label for="doctor">Doctor:</label>
+      <!-- <input type="text" id="reservanueva_docName" [(ngModel)]="nuevaReserva.doctor" name="doctor"> -->
+      <!-- Marco -->
+      <select
+        id="reservanueva_docName"
+        [(ngModel)]="nuevaReserva.doctor"
+        name="doctor"
+      >
+        <option value="" disabled selected>Selecciona un doctor</option>
+        <!--<option unselectable value="">Selecciona un doctor</option>-->
+        <ng-container *ngFor="let persona of personas">
+          <ng-container *ngIf="persona.flag_es_doctor == '1'">
+            <option [ngValue]="persona">
+              {{ persona.nombre + " " + persona.apellido }}
+            </option>
+          </ng-container>
+        </ng-container>
+      </select>
+
+      <label for="paciente">Pacientes:</label>
+      <!-- <input type="text" id="reservanueva_pacientName" [(ngModel)]="nuevaReserva.paciente" name="pacient"> -->
+      <!-- Lista desplegable de Pacientes -->
+
+      <select
+        id="reservanueva_pacientName"
+        [(ngModel)]="nuevaReserva.paciente"
+        name="paciente"
+      >
+        <option value="" disabled selected>Selecciona un paciente</option>
+        <!--<option value="">Selecciona un paciente</option> -->
+        <ng-container *ngFor="let persona of personas">
+          <ng-container *ngIf="persona.flag_es_doctor === '0'">
+            <option [ngValue]="persona">
+              {{ persona.nombre + " " + persona.apellido }}
+            </option>
+          </ng-container>
+        </ng-container>
+      </select>
+      <label for="date">Fecha:</label>
+      <input
+        type="date"
+        id="reservanueva_date"
+        [(ngModel)]="nuevaReserva.fecha"
+        name="date"
+      />
+
+      <label for="hora">Hora:</label>
+      <select
+        id="reservanueva_timeName"
+        [(ngModel)]="nuevaReserva.hora"
+        name="time"
+      >
+        <option value="" disabled selected>Selecciona una hora</option>
+        <!--<option unselectable value="">Selecciona una hora</option>-->
+        <!-- Opciones para seleccionar la hora -->
+        <option value="09:00 - 10:00">09:00 - 10:00</option>
+        <option value="10:00 - 11:00">10:00 - 11:00</option>
+        <option value="11:00 - 12:00">11:00 - 12:00</option>
+        <option value="12:00 - 13:00">12:00 - 13:00</option>
+        <option value="13:00 - 14:00">13:00 - 14:00</option>
+        <option value="14:00 - 15:00">14:00 - 15:00</option>
+        <option value="15:00 - 16:00">15:00 - 16:00</option>
+        <option value="16:00 - 17:00">16:00 - 17:00</option>
+        <option value="17:00 - 18:00">17:00 - 18:00</option>
+        <option value="18:00 - 19:00">18:00 - 19:00</option>
+        <option value="19:00 - 20:00">19:00 - 20:00</option>
+        <option value="20:00 - 21:00">20:00 - 21:00</option>
+        <!-- Otras opciones de horarios -->
+      </select>
+
+      <button type="submit" id="addReservationButton">Agregar Reserva</button>
+    </form>
+  </div>
+  <!-- Filtros -->
+  <div class="filters">
+    <h2 style="color: gray">Filtros</h2>
+    <label for="doctorFilter">Doctor:</label>
+    <input
+      type="text"
+      id="doctorFilter"
+      [(ngModel)]="filtros.doctor"
+      (input)="applyFilters()"
+    />
+
+    <label for="pacienteFilter">Paciente:</label>
+    <input
+      type="text"
+      id="pacienteFilter"
+      [(ngModel)]="filtros.paciente"
+      (input)="applyFilters()"
+    />
+    <label for="dateDesdeFilter">Fecha desde:</label>
+    <input
+      type="date"
+      id="dateDesdeFilter"
+      [(ngModel)]="filtros.fechaDesde"
+      (input)="applyFilters()"
+    />
+
+    <label for="dateHastaFilter">Fecha hasta:</label>
+    <input
+      type="date"
+      id="dateHastaFilter"
+      [(ngModel)]="filtros.fechaHasta"
+      (input)="applyFilters()"
+    />
+
+    <!-- <button (click)="applyFilters()">Apply Filters</button> Add this button -->
+  </div>
+  <!-- Tabla de turnos -->
+  <div class="reservation-form">
+    <h2>Reservas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Doctor</th>
+          <th>Paciente</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reserva of reservasFormateadas; let i = index">
+          <td>{{ reserva.doctor }}</td>
+          <td>{{ reserva.paciente }}</td>
+          <td>{{ reserva.fecha }}</td>
+          <td>{{ reserva.hora }}</td>
+          <td>
+            <button class="btn-danger" (click)="cancelReserva(reserva.id)">
+              Cancelar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
