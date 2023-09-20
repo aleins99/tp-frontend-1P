@@ -119,7 +119,9 @@ export class FichaClinicaComponent implements OnInit {
       Doctor: fichaClinica.doctor.nombre + ' ' + fichaClinica.doctor.apellido,
       Paciente:
         fichaClinica.paciente.nombre + ' ' + fichaClinica.paciente.apellido,
-      Fecha: this.fichaClinicaService.formattedDate(fichaClinica.fecha),
+      Fecha: this.fichaClinicaService.formattedDate(
+        new Date(fichaClinica.fecha)
+      ),
       'Motivo de Consulta': fichaClinica.motivoConsulta,
       Diagnóstico: fichaClinica.diagnostico,
       Categoría: fichaClinica.categoria.descripcion,

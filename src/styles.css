@@ -49,9 +49,11 @@ label {
   margin-right: 10px;
   text-align: center; /* Centra el texto dentro de los labels */
   width: 100px; /* Asegura un ancho fijo para los labels */
+  display: block;
 }
 
-input[type="text"] {
+input[type="text"],
+select {
   width: 200px;
   padding: 5px;
   border: 1px solid #ccc;
