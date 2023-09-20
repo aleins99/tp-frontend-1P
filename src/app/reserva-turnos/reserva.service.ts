@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { ReservaDeTurno } from '../models/reserva-turnos.interface';
+import { ReservaDeTurno } from '../models/reserva-turnos.models';
 import { ReservaDeTurnoFiltro } from './reserva-turnos-filtro.interface';
-import { Categoria } from '../models/categoria.interface';
+import { Categoria } from '../models/categoria.models';
 
 export type ReservaDeTurnoFormateada = {
   fecha: string;

@@ -1,6 +1,6 @@
 // src/app/categoria-administracion/categoria-administracion.component.ts
 import { Component } from '@angular/core';
-import { Categoria } from '../models/categoria.interface';
+import { Categoria } from '../models/categoria.models';
 import { CategoriaService } from '../categoria.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PacientesDoctores } from '../models/pacientes-doctores.interface';
+import { PacientesDoctores } from '../models/pacientes-doctores.models';
 
 @Injectable({
   providedIn: 'root',

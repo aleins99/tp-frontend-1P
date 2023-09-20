@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PacientesDoctores } from 'src/app/models/pacientes-doctores.interface';
+import { PacientesDoctores } from 'src/app/models/pacientes-doctores.models';
 import { PacientesDoctoresService } from '../pacientes-doctores.service';
 
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';

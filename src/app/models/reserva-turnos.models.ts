@@ -1,5 +1,5 @@
-import { Categoria } from './categoria.interface';
-import { PacientesDoctores as Persona } from './pacientes-doctores.interface';
+import { Categoria } from './categoria.models';
+import { PacientesDoctores as Persona } from './pacientes-doctores.models';
 
 export interface ReservaDeTurno {
   id: number; // ID único de la reserva

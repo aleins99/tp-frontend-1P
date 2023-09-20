@@ -1,6 +1,6 @@
 // src/app/categoria.service.ts
 import { Injectable } from '@angular/core';
-import { Categoria } from './models/categoria.interface';
+import { Categoria } from './models/categoria.models';
 
 @Injectable({
   providedIn: 'root',

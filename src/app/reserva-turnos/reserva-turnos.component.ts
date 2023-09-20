@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ReservaService, ReservaDeTurnoFormateada } from './reserva.service';
-import { ReservaDeTurno } from '../models/reserva-turnos.interface';
+import { ReservaDeTurno } from '../models/reserva-turnos.models';
 import { PacientesDoctoresService } from '../pacientes-doctores/pacientes-doctores.service'; //para traer las personas desde registro-de-personas
 import { CategoriaService } from '../categoria.service'; // para traer las categorias desde el registro de consultas
-import { Categoria } from '../models/categoria.interface';
-import { PacientesDoctores as Persona } from '../models/pacientes-doctores.interface';
+import { Categoria } from '../models/categoria.models';
+import { PacientesDoctores as Persona } from '../models/pacientes-doctores.models';
 import { ReservaDeTurnoFiltro } from './reserva-turnos-filtro.interface';
 
 @Component({
